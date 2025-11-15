@@ -6,6 +6,8 @@ enum Endpoint {
     case pokemonDetails(String)
     case pokemon
     case items
+    case breeds
+    case breedImages
 }
 
 // MARK: - EndpointType
@@ -16,6 +18,8 @@ extension Endpoint: EndpointType {
             case .pokemonDetails(let id): return "pokemon/\(id)"
             case .pokemon: return "pokemon"
             case .items: return "item"
+            case .breeds: return "breeds"
+            case .breedImages: return "images/search"
         }
     }
 }

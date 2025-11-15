@@ -2,12 +2,12 @@ import SwiftUI
 import SwiftData
 
 @main
-struct PokedexUIApp: App {
+struct MewseumApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
         }
-        .modelContainer(for: [ItemData.self, Pokemon.self])
+        .modelContainer(for: [Breed.self, WeightRange.self])
     }
 }
 
@@ -16,9 +16,8 @@ private struct RootView: View {
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
-        PokedexView(
-            viewModel: PokedexViewModel(modelContext: modelContext),
-            itemListViewModel: ItemListViewModel(modelContext: modelContext)
+        BreedListView(
+            viewModel: BreedListViewModel(modelContext: modelContext)
         )
     }
 }
