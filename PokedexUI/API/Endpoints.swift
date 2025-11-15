@@ -1,11 +1,7 @@
 import Networking
 
-/// An enumeration for all the possible endpoints for the backend
+/// An enumeration for all the possible endpoints for TheCatAPI
 enum Endpoint {
-    case itemDetails(String)
-    case pokemonDetails(String)
-    case pokemon
-    case items
     case breeds
     case breedImages
 }
@@ -14,10 +10,6 @@ enum Endpoint {
 extension Endpoint: EndpointType {
     var path: String {
         switch self {
-            case .itemDetails(let id): return "item/\(id)"
-            case .pokemonDetails(let id): return "pokemon/\(id)"
-            case .pokemon: return "pokemon"
-            case .items: return "item"
             case .breeds: return "breeds"
             case .breedImages: return "images/search"
         }
