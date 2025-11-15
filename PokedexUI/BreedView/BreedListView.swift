@@ -3,19 +3,48 @@ import SwiftUI
 // MARK: - Main View
 struct BreedListView<ViewModel: BreedListViewModelProtocol>: View {
     @State var viewModel: ViewModel
+    @State private var searchText: String = ""
 
     var body: some View {
         NavigationStack {
             BreedGridView(
-                breeds: viewModel.breeds,
+                breeds: filteredBreeds,
                 grid: viewModel.grid,
                 isLoading: viewModel.isLoading
             )
+            .refreshable {
+                await viewModel.requestBreeds()
+            }
             .navigationTitle("Mewseum")
+            .searchable(text: $searchText, prompt: "Search breeds, origin, or temperament")
             .toolbar { BreedToolbar(viewModel: $viewModel) }
         }
         .task { await viewModel.requestBreeds() }
         .tint(Color.mewseumOrange)
+    }
+
+    // MARK: - Computed Properties
+    private var filteredBreeds: [any BreedViewModelProtocol] {
+        guard !searchText.isEmpty else {
+            return viewModel.breeds
+        }
+
+        let queryTerms = searchText
+            .split(whereSeparator: \.isWhitespace)
+            .map { $0.normalize }
+            .filter { !$0.isEmpty }
+
+        return viewModel.breeds.filter { breed in
+            let name = breed.name.normalize
+            let origin = breed.origin.normalize
+            let temperament = breed.temperament.normalize
+
+            return queryTerms.allSatisfy { term in
+                name.contains(term) ||
+                origin.contains(term) ||
+                temperament.contains(term)
+            }
+        }
     }
 }
 
