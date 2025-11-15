@@ -56,8 +56,7 @@ private struct BreedGridItem<ViewModel: BreedViewModelProtocol>: View {
 
     var body: some View {
         NavigationLink {
-            // TODO: BreedDetailView - Phase 2
-            Text("Breed Detail: \(breed.name)")
+            BreedDetailView(viewModel: BreedDetailViewModel(breed: breed))
                 .navigationTransition(
                     .zoom(sourceID: breed.id, in: namespace)
                 )
