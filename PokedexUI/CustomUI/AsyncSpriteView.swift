@@ -1,3 +1,9 @@
+//
+//  AsyncSpriteView.swift
+//  Mewseum
+//
+//  Created by Vincent WANG on 2025/11/15.
+//
 import SwiftUI
 
 struct AsyncSpriteView<ViewModel: PokemonViewModelProtocol>: View {

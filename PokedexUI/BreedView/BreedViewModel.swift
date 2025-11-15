@@ -1,3 +1,9 @@
+//
+//  BreedViewModel.swift
+//  Mewseum
+//
+//  Created by Vincent WANG on 2025/11/15.
+//
 import SwiftUI
 
 /// Protocol for Breed view models providing display-ready breed data.

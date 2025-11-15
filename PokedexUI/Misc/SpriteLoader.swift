@@ -1,3 +1,9 @@
+//
+//  SpriteLoader.swift
+//  Mewseum
+//
+//  Created by Vincent WANG on 2025/11/15.
+//
 import UIKit
 
 /// An actor responsible for asynchronously loading and caching sprite images from remote URLs.

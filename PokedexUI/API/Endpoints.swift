@@ -1,3 +1,9 @@
+//
+//  Endpoints.swift
+//  Mewseum
+//
+//  Created by Vincent WANG on 2025/11/15.
+//
 import Networking
 
 /// An enumeration for all the possible endpoints for TheCatAPI

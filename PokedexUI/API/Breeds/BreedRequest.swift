@@ -1,3 +1,9 @@
+//
+//  BreedRequest.swift
+//  Mewseum
+//
+//  Created by Vincent WANG on 2025/11/15.
+//
 import Networking
 
 /// An enum for requesting breed data from TheCatAPI

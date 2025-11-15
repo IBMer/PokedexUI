@@ -1,3 +1,9 @@
+//
+//  View.swift
+//  Mewseum
+//
+//  Created by Vincent WANG on 2025/11/15.
+//
 import SwiftUI
 
 extension View {
