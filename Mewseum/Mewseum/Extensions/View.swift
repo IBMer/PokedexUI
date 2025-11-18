@@ -7,25 +7,12 @@
 import SwiftUI
 
 extension View {
-    func applyPokedexStyling(title: String) -> some View {
-        self
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .font(.pixel17)
-                        .foregroundStyle(.white)
-                }
-            }
-            .toolbarBackground(Color.pokedexRed ?? .red, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .background(Color.darkGrey)
-    }
-
-    func fadeIn<Value: Equatable>(when value: Value, duration: Double = 0.4) -> some View {
-        modifier(FadeInViewModifier(value: value, duration: duration))
-    }
-
+    /// A conditional view modifier that applies a transformation only when a condition is true.
+    ///
+    /// - Parameters:
+    ///   - condition: A boolean value indicating whether to apply the transformation.
+    ///   - modify: A closure that transforms the view.
+    /// - Returns: Either the modified view or the original view, depending on the condition.
     @ViewBuilder
     func `if`<Content: View>(_ condition: Bool, modify: (Self) -> Content) -> some View {
         if condition {
