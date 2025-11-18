@@ -16,13 +16,13 @@ protocol ServiceConfiguration {
     associatedtype OutputModel
 
     /// Returns the request used to fetch a list of results.
-    func createRequest() -> Requestable
+    nonisolated func createRequest() -> Requestable
     /// Returns the request to fetch detailed data from a specific item URL component.
     /// - Parameter urlComponent: The last path component of a resource URL.
-    func createDetailRequest(from urlComponent: String) -> Requestable
+    nonisolated func createDetailRequest(from urlComponent: String) -> Requestable
     /// Transforms a list of decoded response objects into output models.
     /// - Parameter response: The raw decoded response items.
-    func transformResponse(_ response: [ResponseType]) -> [OutputModel]
+    nonisolated func transformResponse(_ response: [ResponseType]) -> [OutputModel]
 }
 
 // MARK: - Generic API Service Actor
@@ -55,13 +55,13 @@ extension APIService {
     /// - Throws: Any error thrown by the network service or decoding pipeline.
     func requestData() async throws -> [Config.OutputModel] {
         let request = config.createRequest()
-        let response: APIResponse = try await networkService.request(request, logResponse: false)
+        let response: APIResponse = try await networkService.request(request)
 
         let details = try await withThrowingTaskGroup(of: Config.ResponseType.self) { group in
             for result in response.results {
                 group.addTask { [config, networkService] in
                     let request = config.createDetailRequest(from: try result.url.asURL().lastPathComponent)
-                    return try await networkService.request(request, logResponse: false)
+                    return try await networkService.request(request)
                 }
             }
 
