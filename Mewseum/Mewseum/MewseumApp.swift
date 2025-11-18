@@ -2,31 +2,28 @@
 //  MewseumApp.swift
 //  Mewseum
 //
-//  Created by Vincent WANG on 2025/11/18.
+//  Created by Vincent WANG on 2025/11/15.
 //
-
 import SwiftUI
 import SwiftData
 
 @main
 struct MewseumApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [Breed.self, WeightRange.self])
+    }
+}
+
+// MARK: - Root view
+private struct RootView: View {
+    @Environment(\.modelContext) private var modelContext
+
+    var body: some View {
+        BreedListView(
+            viewModel: BreedListViewModel(modelContext: modelContext)
+        )
     }
 }

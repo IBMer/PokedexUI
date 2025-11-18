@@ -36,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF821D02ECC6F0000E81D6B /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +79,7 @@
 			);
 			name = Mewseum;
 			packageProductDependencies = (
+				3DF821CF2ECC6F0000E81D6B /* Networking */,
 			);
 			productName = Mewseum;
 			productReference = 3DF821B42ECC6C4700E81D6B /* Mewseum.app */;
@@ -107,6 +109,9 @@
 			);
 			mainGroup = 3DF821AB2ECC6C4700E81D6B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3DF821CE2ECC6F0000E81D6B /* XCRemoteSwiftPackageReference "Networking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3DF821B52ECC6C4700E81D6B /* Products */;
 			projectDirPath = "";
@@ -366,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DF821CE2ECC6F0000E81D6B /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/brillcp/Networking";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DF821CF2ECC6F0000E81D6B /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DF821CE2ECC6F0000E81D6B /* XCRemoteSwiftPackageReference "Networking" */;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DF821AC2ECC6C4700E81D6B /* Project object */;
 }
