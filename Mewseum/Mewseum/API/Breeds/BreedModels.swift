@@ -138,8 +138,7 @@ extension Breed {
             referenceImageID: "0XYvRd7oD",
             adaptability: 5,
             affectionLevel: 5,
-            intelligence: 5,
-            energyLevel: 5
+            energyLevel: 5, intelligence: 5
         )
     }
 }

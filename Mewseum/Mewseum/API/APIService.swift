@@ -5,6 +5,7 @@
 //  Created by Vincent WANG on 2025/11/15.
 //
 import Networking
+import Foundation
 
 // MARK: - Service Configuration Protocol
 /// A protocol that defines the configuration blueprint for a generic API service.
