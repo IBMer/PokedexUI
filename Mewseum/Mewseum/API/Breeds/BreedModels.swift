@@ -124,6 +124,46 @@ final class Breed: Decodable {
     }
 }
 
+// MARK: - Computed Properties
+extension Breed {
+    /// Returns the temperament string as an array of individual traits.
+    /// Splits by comma and trims whitespace from each trait.
+    var temperamentList: [String] {
+        temperament
+            .split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+    }
+
+    /// Returns the weight in metric format for display
+    var weightMetric: String {
+        "\(weight.metric) kg"
+    }
+
+    /// Returns a dictionary of all trait scores for easy access
+    var traits: [String: Int] {
+        [
+            "Adaptability": adaptability,
+            "Affection Level": affectionLevel,
+            "Child Friendly": childFriendly,
+            "Dog Friendly": dogFriendly,
+            "Energy Level": energyLevel,
+            "Grooming": grooming,
+            "Health Issues": healthIssues,
+            "Intelligence": intelligence,
+            "Shedding Level": sheddingLevel,
+            "Social Needs": socialNeeds,
+            "Stranger Friendly": strangerFriendly,
+            "Vocalisation": vocalisation
+        ]
+    }
+
+    /// Returns the breed description (alias for breedDescription)
+    var description: String {
+        breedDescription
+    }
+}
+
 // MARK: - Mock Breed
 extension Breed {
     static var mockAbyssinian: Breed {

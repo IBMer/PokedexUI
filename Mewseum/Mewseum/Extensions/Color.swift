@@ -14,6 +14,12 @@ extension Color {
     static let grey = Color(hex: "8db6d2")
     static let green = Color(hex: "5ba74f")
 
+    // MARK: - Mewseum Brand Colors
+    /// Primary brand color for Mewseum - warm orange
+    static let mewseumOrange = Color(hex: "FF8C42")
+    /// Accent color for interactive elements and highlights
+    static let mewseumAccent = Color(hex: "FF6B35")
+
     init?(hex: String, alpha: Double = 1.0) {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexString = hexString.hasPrefix("#") ? String(hexString.dropFirst()) : hexString
