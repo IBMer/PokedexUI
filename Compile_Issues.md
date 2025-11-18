@@ -1,6 +1,9 @@
-/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/API/APIService.swift
-/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/API/APIService.swift:57:30 Main actor-isolated instance method 'createRequest()' cannot be called from outside of the actor; this is an error in the Swift 6 language mode
+Mewseum
+/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/BreedDetailView/BreedDetailView.swift
+/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/BreedDetailView/BreedDetailView.swift:145:35 Type 'ShapeStyle' has no member 'mewseumOrange'
 
-/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/API/APIService.swift:58:92 Extra argument 'logResponse' in call
+/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/BreedDetailView/BreedDetailView.swift:166:41 Value of type 'any BreedViewModelProtocol' has no member 'temperamentList'
 
-/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/API/APIService.swift:64:83 Extra argument 'logResponse' in call
+/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/BreedDetailView/BreedDetailView.swift:172:43 Type 'ShapeStyle' has no member 'mewseumAccent'
+
+/Users/smeagol/Documents/Developer/PokedexUI/Mewseum/Mewseum/BreedDetailView/BreedDetailView.swift:248:39 Type 'ShapeStyle' has no member 'mewseumOrange'
