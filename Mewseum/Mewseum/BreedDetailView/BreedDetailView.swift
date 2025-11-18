@@ -142,7 +142,7 @@ private extension BreedDetailView {
         HStack {
             Image(systemName: icon)
                 .font(.system(size: 18))
-                .foregroundStyle(.mewseumOrange)
+                .foregroundStyle(Color.mewseumOrange)
                 .frame(width: 30)
 
             Text(title)
@@ -169,7 +169,7 @@ private extension BreedDetailView {
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
                         .background(Color.mewseumOrange.opacity(0.2))
-                        .foregroundStyle(.mewseumAccent)
+                        .foregroundStyle(Color.mewseumAccent)
                         .clipShape(Capsule())
                 }
             }
@@ -245,7 +245,7 @@ private extension BreedDetailView {
 
                 Text("TheCatAPI")
                     .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(.mewseumOrange)
+                    .foregroundStyle(Color.mewseumOrange)
             }
 
             Spacer()

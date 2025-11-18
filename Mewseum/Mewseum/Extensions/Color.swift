@@ -16,9 +16,9 @@ extension Color {
 
     // MARK: - Mewseum Brand Colors
     /// Primary brand color for Mewseum - warm orange
-    static let mewseumOrange = Color(hex: "FF8C42")
+    static let mewseumOrange = Color(hex: "FF8C42")!
     /// Accent color for interactive elements and highlights
-    static let mewseumAccent = Color(hex: "FF6B35")
+    static let mewseumAccent = Color(hex: "FF6B35")!
 
     init?(hex: String, alpha: Double = 1.0) {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines)
