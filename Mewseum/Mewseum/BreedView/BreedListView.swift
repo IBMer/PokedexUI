@@ -13,11 +13,24 @@ struct BreedListView<ViewModel: BreedListViewModelProtocol>: View {
 
     var body: some View {
         NavigationStack {
-            BreedGridView(
-                breeds: filteredBreeds,
-                grid: viewModel.grid,
-                isLoading: viewModel.isLoading
-            )
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: viewModel.grid.layout, spacing: 12.0) {
+                    ForEach(filteredBreeds, id: \.id) { breed in
+                        BreedGridItem(
+                            breed: breed,
+                            grid: viewModel.grid
+                        )
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+            }
+            .overlay {
+                if viewModel.isLoading {
+                    ProgressView("Loading cats...")
+                        .tint(.orange)
+                }
+            }
             .refreshable {
                 await viewModel.requestBreeds()
             }
@@ -30,7 +43,7 @@ struct BreedListView<ViewModel: BreedListViewModelProtocol>: View {
     }
 
     // MARK: - Computed Properties
-    private var filteredBreeds: [any BreedViewModelProtocol] {
+    private var filteredBreeds: [BreedViewModel] {
         guard !searchText.isEmpty else {
             return viewModel.breeds
         }
@@ -54,39 +67,11 @@ struct BreedListView<ViewModel: BreedListViewModelProtocol>: View {
     }
 }
 
-// MARK: - Grid View
-private struct BreedGridView<Breed: BreedViewModelProtocol>: View {
-    let breeds: [Breed]
-    let grid: GridLayout
-    var isLoading: Bool = false
-
-    var body: some View {
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: grid.layout, spacing: 12.0) {
-                ForEach(breeds, id: \.id) { breed in
-                    BreedGridItem(
-                        breed: breed,
-                        grid: grid
-                    )
-                }
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
-        }
-        .overlay {
-            if isLoading {
-                ProgressView("Loading cats...")
-                    .tint(.orange)
-            }
-        }
-    }
-}
-
 // MARK: - Grid item
-private struct BreedGridItem<ViewModel: BreedViewModelProtocol>: View {
+private struct BreedGridItem: View {
     @Namespace private var namespace
 
-    var breed: ViewModel
+    var breed: BreedViewModel
     let grid: GridLayout
 
     var body: some View {
@@ -103,8 +88,8 @@ private struct BreedGridItem<ViewModel: BreedViewModelProtocol>: View {
 }
 
 // MARK: - Breed Card
-private struct BreedCard<ViewModel: BreedViewModelProtocol>: View {
-    var breed: ViewModel
+private struct BreedCard: View {
+    var breed: BreedViewModel
     var compact: Bool = false
 
     var body: some View {

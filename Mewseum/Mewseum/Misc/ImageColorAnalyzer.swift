@@ -7,12 +7,12 @@
 import UIKit
 
 actor ImageColorAnalyzer {
-    private var cache = [Int: UIColor]()
+    private var cache = [String: UIColor]()
 }
 
 // MARK: - Public functions
 extension ImageColorAnalyzer {
-    func dominantColor(for id: Int, image: UIImage) -> UIColor? {
+    func dominantColor(for id: String, image: UIImage) -> UIColor? {
         if let cached = cache[id] { return cached }
 
         guard let cgImage = image.resize(to: CGSize(width: 50, height: 50))?.cgImage,
