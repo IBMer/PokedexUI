@@ -33,6 +33,12 @@ protocol BreedViewModelProtocol {
 
     /// Trait scores dictionary for easy access.
     var traits: [String: Int] { get }
+
+    /// Returns a summary for display in list views.
+    var summary: String { get }
+
+    /// Returns a formatted array of temperament traits.
+    var temperamentList: [String] { get }
 }
 
 // MARK: -

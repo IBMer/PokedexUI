@@ -198,13 +198,6 @@ private struct BreedToolbar<ViewModel: BreedListViewModelProtocol & Sendable>: T
     }
 }
 
-// MARK: - Mewseum Colors
-extension Color {
-    static let mewseumOrange = Color(red: 1.0, green: 0.6, blue: 0.4) // #FF9966
-    static let mewseumPink = Color(red: 1.0, green: 0.9, blue: 0.8) // #FFE5CC
-    static let mewseumAccent = Color(red: 1.0, green: 0.42, blue: 0.21) // #FF6B35
-}
-
 // MARK: - Preview
 #Preview {
     @Previewable

@@ -12,7 +12,7 @@ import Foundation
 /// `DataStorageReader` leverages the concurrency-safe `@ModelActor` macro to provide an isolated execution context for
 /// all storage operations. This ensures thread safety and data consistency when performing inserts and fetches on the underlying data layer.
 ///
-/// - Note: This actor is generic and can operate on any model conforming to `PersistentModel`, not just `Pokemon`.
+/// - Note: This actor is generic and can operate on any model conforming to `PersistentModel`.
 /// - Important: All operations are performed on the actor's internal `modelContext`, providing automatic protection from data races.
 @ModelActor
 actor DataStorageReader {
@@ -40,7 +40,7 @@ actor DataStorageReader {
     func fetch<M: PersistentModel>(sortBy: SortDescriptor<M>) throws -> [M] {
         let context = modelContext
         let descriptor = FetchDescriptor<M>(sortBy: [sortBy])
-        let storedPokemon = try context.fetch(descriptor)
-        return storedPokemon
+        let storedModels = try context.fetch(descriptor)
+        return storedModels
     }
 }
